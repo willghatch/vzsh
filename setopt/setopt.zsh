@@ -69,6 +69,7 @@ autoload -U add-zsh-hook
 # recent directory list
 # use with cdr command
 autoload -Uz chpwd_recent_dirs cdr
+autoload -U add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-file $VZSH_RECENT_DIRS_DIR/rd-${TTY##*/} +
 
