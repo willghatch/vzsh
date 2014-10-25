@@ -3,7 +3,8 @@
 # Configuration example (and default) for vzsh
 
 if [[ -z "$VZSH_HOME" ]]; then
-    VZSH_HOME=$HOME/.config/vzsh
+    # this little piece of magic points to the directory of this file.
+    VZSH_HOME=${${0:A}:h}
 fi
 
 
