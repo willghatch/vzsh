@@ -61,19 +61,18 @@ zle -N run-help-keys
 
 if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     VZSH_ADD_HELP_KEY=true
+
     # nuke viins map, replacing it with the contents of the emacs map
     bindkey -A emacs viins
 
     # escapes for command mode
-    bindkey -M viins 'jk' vi-cmd-mode
-    bindkey -M viins 'kj' vi-cmd-mode
+    bindkey -M viins '\e' vi-cmd-mode
+    # though these are so much better...
+    #bindkey -M viins 'jk' vi-cmd-mode
+    #bindkey -M viins 'kj' vi-cmd-mode
 
     # use viins, which is now emacs-y, but has an out to vicmd mode
     bindkey -v
-
-    # include history substring search commands
-    bindkey -M emacs '^P' history-substring-search-up
-    bindkey -M emacs '^N' history-substring-search-down
 
     # completion
     define-prefix-command completionkey
@@ -87,19 +86,17 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey-to-prefix-map completionkey t complete-tmux
     bindkey-to-prefix-map completionkey p insert-last-typed-word
     bindkey-to-prefix-map completionkey d insert-datestamp
-    bindkey -r emacs '^[h'
-    bindkey -M emacs '^[h' completionkey
+    bindkey -r viins '^[h'
+    bindkey -M viins '^[h' completionkey
     # ^i is tab
-    bindkey -M emacs '^i' complete-std
+    bindkey -M viins '^i' complete-std
     # ^[[Z is backtab...
-    bindkey -M emacs '^[[Z' complete-std-anywhere
+    bindkey -M viins '^[[Z' complete-std-anywhere
 
+    # funcs from grml-funcs
     bindkey -M vicmd 'md' inPlaceMkDirs
     bindkey -M vicmd 'g2' jump_after_first_word
-
-    bindToMaps '^[c' execute-named-cmd $(bindkey -l)
-
-    bindkey -M emacs . rationalise-dot
+    bindkey -M viins . rationalise-dot
     # without this, typing a . aborts incremental history search
     bindkey -M isearch . self-insert
 fi
