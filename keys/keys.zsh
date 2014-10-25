@@ -1,5 +1,9 @@
 # provides useful key mapping functions, and a better keymap
 
+if [[ -z "$VZSH_ADD_HELP_KEY" ]]; then
+    VZSH_ADD_HELP_KEY=true
+fi
+
 if [[ -z "$HELP_KEY" ]]; then
     HELP_KEY=''
 fi
@@ -52,6 +56,7 @@ zle -N run-help-keys
 
 
 if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
+    VZSH_ADD_HELP_KEY=true
     # nuke viins map, replacing it with the contents of the emacs map
     bindkey -A emacs viins
 
@@ -90,11 +95,16 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
 
     bindToMaps '^[c' execute-named-cmd $(bindkey -l)
 
+    bindkey -M emacs . rationalise-dot
+    # without this, typing a . aborts incremental history search
+    bindkey -M isearch . self-insert
+fi
+
+if [[ "$VZSH_ADD_HELP_KEY" = "true" ]]; then
     # Help
-    bindkey -r emacs '^h'
     for m in $(bindkey -l)
     do
-        bindkey -r $m '^h' 2>/dev/null
+        bindkey -r $m '$HELP_KEY' 2>/dev/null
     done
     define-prefix-command helpkey
     bindkey-to-prefix-map helpkey g run-help-glob
@@ -104,8 +114,6 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey-to-prefix-map helpkey h run-help-help
     bindToMaps "$HELP_KEY" helpkey $(bindkey -l)
 
-    bindkey -M emacs . rationalise-dot
-    # without this, typing a . aborts incremental history search
-    bindkey -M isearch . self-insert
-
 fi
+
+
