@@ -1,5 +1,9 @@
 # provides useful key mapping functions, and a better keymap
 
+if [[ -z "$VZSH_DEFAULT_SET" ]]; then
+    source ${${0:A}:h}/../defaults.zsh
+fi
+
 if [[ -z "$VZSH_ADD_HELP_KEY" ]]; then
     VZSH_ADD_HELP_KEY=true
 fi

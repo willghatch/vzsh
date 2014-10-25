@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-zstyle :compinstall filename $COMPINSTALL_FILE
 
 ############### NOTE here -
 # I don't think I really understand the right way to configure zsh completers, but I'm sick of trying

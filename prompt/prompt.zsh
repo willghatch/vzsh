@@ -1,5 +1,9 @@
 # Prompt setup.  TODO - look at zsh's built in prompt theme framework
 
+if [[ -z "$VZSH_DEFAULT_SET" ]]; then
+    source ${${0:A}:h}/../defaults.zsh
+fi
+
 PS1_time='%F{cyan}%T'
 PS1_hostcolor="%F{yellow}"
 PS1_user_host='%F{green}[%B%n%b${PS1_hostcolor}@%B%m%b%F{green}]'

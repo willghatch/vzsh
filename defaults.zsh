@@ -1,6 +1,7 @@
 # Default settings for necessary vzsh and zsh variables and some needed functions
 # user-defined variables are all left alone
 
+VZSH_DEFAULT_SET=true # make the various plugins not try to re-source this
 
 if [[ -z "$VZSH_REMAP_KEYS_P" ]]; then
     VZSH_REMAP_KEYS_P='false'
@@ -25,6 +26,7 @@ if [[ -z "$PAGER" ]]; then
 fi
 if [[ -z "$COMPINSTALL_FILE" ]]; then
     COMPINSTALL_FILE=$VZSH_CACHE/compinstall
+    zstyle :compinstall filename $COMPINSTALL_FILE
 fi
 # mailchecks
 #MAILCHECK=30
