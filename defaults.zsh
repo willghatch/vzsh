@@ -39,6 +39,7 @@ if [[ -z "$ZLE_LINE_INIT_FUNCS" ]]; then
     typeset -ag ZLE_LINE_INIT_FUNCS
 fi
 zle-line-init(){
+    CUR_KEYMAP=$KEYMAP
     for func in $ZLE_LINE_INIT_FUNCS; do
         $func
     done
