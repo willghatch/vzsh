@@ -59,6 +59,8 @@ Add snippets
     snippet-add d "/my/long/directory/or/something like that"
     # then you can expand d to... that long thing
 
+List snippets with help-list-snippets function, or (C-hs if you load the keys module).
+
 Keys
 ----
 
@@ -97,6 +99,8 @@ completion
 ----------
 
 After so much frustration trying to figure out how to customize different completion commands to behave the way I wanted, I wrapped zsh completion with my own system to be able to define different keys to complete in different ways.  This was largely born out of frustration, and if I learn about the "right way" to do this later, it may simply be replaced by some clear documentation about that, with a good default setup.
+
+TODO - document this better...
 
 Questions? Comments?
 --------------------
