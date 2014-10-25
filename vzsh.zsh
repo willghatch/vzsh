@@ -6,14 +6,15 @@ if [[ -z "$VZSH_HOME" ]]; then
     # this little piece of magic points to the directory of this file.
     VZSH_HOME=${${0:A}:h}
 fi
-
+if [[ -z "$VZSH_REMAP_KEYS_P" ]]; then
+    # if you are sourcing the full thing, you get the keys!
+    VZSH_REMAP_KEYS_P='true'
+fi
 
 
 # defaults is necessary to set up default values for anything you haven't
 # customized above
 source $VZSH_HOME/defaults.zsh
-
-
 
 # the other sourced files are all optional
 # TODO - document these

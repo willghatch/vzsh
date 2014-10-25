@@ -3,7 +3,7 @@
 
 
 if [[ -z "$VZSH_REMAP_KEYS_P" ]]; then
-    VZSH_REMAP_KEYS_P='true'
+    VZSH_REMAP_KEYS_P='false'
 fi
 if [[ -z "$VZSH_CACHE" ]]; then
     VZSH_CACHE=$HOME/.cache/vzsh
@@ -25,12 +25,6 @@ if [[ -z "$PAGER" ]]; then
 fi
 if [[ -z "$COMPINSTALL_FILE" ]]; then
     COMPINSTALL_FILE=$VZSH_CACHE/compinstall
-fi
-if [[ -z "$VZSH_RECENT_DIRS_DIR" ]]; then
-    VZSH_RECENT_DIRS_DIR=$VZSH_CACHE/recent-dirs
-fi
-if [[ ! -d $VZSH_RECENT_DIRS_DIR ]]; then
-    mkdir -p $VZSH_RECENT_DIRS_DIR
 fi
 # mailchecks
 #MAILCHECK=30

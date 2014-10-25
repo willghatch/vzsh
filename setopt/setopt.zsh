@@ -61,15 +61,4 @@ autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
 
-# make hooking possible
-autoload -U add-zsh-hook
-#add-zsh-hook [-dD] <hook> <function>
-#hook is one of chpwd, periodic, precmd, preexec, zshaddhistory, zshexit, or zsh_directory_name
-
-# recent directory list
-# use with cdr command
-autoload -Uz chpwd_recent_dirs cdr
-autoload -U add-zsh-hook
-add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-file $VZSH_RECENT_DIRS_DIR/rd-${TTY##*/} +
 
