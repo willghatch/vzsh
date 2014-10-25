@@ -394,7 +394,7 @@ _complete_tmux_display() {
 }
 
 help-glob() {
-    zle -M "
+    local help="
     /      directories
     .      plain files
     @      symbolic links
@@ -430,9 +430,14 @@ help-glob() {
   print -l *(.c|.h)     # Lists *.c and *.h
   print **/*(g:users:)  # Recursively match all files that are owned by group 'users'
   echo /proc/*/cwd(:h:t:s/self//) # Analogous to >ps ax | awk '{print $1}'<"
+    if [[ "$1" = "inZLE" ]]; then
+        zle -M "$help"
+    else
+        echo "$help" | $PAGER
+    fi
 }
 run-help-glob(){
-    help-glob
+    help-glob inZLE
 }
 zle -N run-help-glob
 

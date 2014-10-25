@@ -23,10 +23,15 @@ snippet-expand() {
 zle -N snippet-expand
 
 help-list-snippets(){
-    zle -M "$(print "Snippets:"; print -a -C 2 ${(kv)snippets})"
+    local help="$(print "Snippets:"; print -a -C 2 ${(kv)snippets})"
+    if [[ "$1" = "inZLE" ]]; then
+        zle -M "$help"
+    else
+        echo "$help" | $PAGER
+    fi
 }
 run-help-list-snippets(){
-    help-list-snippets
+    help-list-snippets inZLE
 }
 zle -N run-help-list-snippets
 
