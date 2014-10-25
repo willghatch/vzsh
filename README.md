@@ -42,14 +42,14 @@ Put the repo at ~/.config/vzsh
 
 source vzshrc
 
-    echo "source ~/.config/vzsh/vzshrc" >> ~/.zshrc
+    echo "source ~/.config/vzsh/vzsh.zsh" >> ~/.zshrc
 
 done!
 
 Want more control?
 ------------------
 
-Copy vzshrc out of the repo and set it up however you like -- it is a template for your own configuration.  It is set up in modules that are independent, so you can pick and choose the parts you find useful.
+Copy vzsh.zsh out of the repo and set it up however you like -- it is a template for your own configuration.  It is set up in modules that are independent, so you can pick and choose the parts you find useful.
 
 Questions? Comments?
 --------------------
