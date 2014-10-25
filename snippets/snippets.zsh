@@ -20,10 +20,7 @@ snippet-expand() {
     LBUFFER=${LBUFFER%%(#m)[.\-+:|_a-zA-Z0-9]#}
     LBUFFER+=${snippets[$MATCH]:-$MATCH}
 }
-snippet-expand-key(){
-    snippet-expand
-}
-zle -N snippet-expand-key
+zle -N snippet-expand
 
 help-list-snippets(){
     zle -M "$(print "Snippets:"; print -a -C 2 ${(kv)snippets})"

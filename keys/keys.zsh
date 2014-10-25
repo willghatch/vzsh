@@ -82,7 +82,7 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey-to-prefix-map completionkey N complete-history-anywhere
     bindkey-to-prefix-map completionkey m complete-maximal
     bindkey-to-prefix-map completionkey M complete-maximal-anywhere
-    bindkey-to-prefix-map completionkey s snippet-expand-key
+    bindkey-to-prefix-map completionkey s snippet-expand
     bindkey-to-prefix-map completionkey t complete-tmux
     bindkey-to-prefix-map completionkey p insert-last-typed-word
     bindkey-to-prefix-map completionkey d insert-datestamp
