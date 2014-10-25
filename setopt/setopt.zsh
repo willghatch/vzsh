@@ -52,7 +52,7 @@ setopt unset
 # watch for everyone but me and root
 #watch=(notme root)
 # automatically remove duplicates from these arrays
-typeset -U path cdpath fpath manpath
+#typeset -U path cdpath fpath manpath
 
 # make help (m-h) be more helpful
 unalias run-help
