@@ -15,7 +15,21 @@ Why?
 
 In the end, this makes a great batteries-included zsh starter kit, like grml or oh-my-zsh.
 
-TODO - I'm going to look into how nicely this plays with oh-my-zsh and/or antigen
+Later I'll probably make these bundle-able by antigen.  Which leads me to...
+
+Suggestions
+-----------
+
+Check out [antigen](https://github.com/zsh-users/antigen) as well - it's a more modular way of using all that oh-my-zsh stuff.
+
+You want to know other plugins I recommend?
+[opp.zsh](https://github.com/hchbaw/opp.zsh)
+[vi visual mode](https://github.com/alfredodeza/zsh-plugins/blob/master/vi/zle_vi_visual.zsh)
+[syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+[history substring search](https://github.com/zsh-users/zsh-history-substring-search)
+[warp directory](https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/wd)
+
+And then I have my dotfiles repo with all of my less generic zsh configuration.
 
 Default Install
 ---------------
@@ -40,4 +54,4 @@ Copy vzshrc out of the repo and set it up however you like -- it is a template f
 Questions? Comments?
 --------------------
 
-I'd like to hear.  Shoot me an email at willghatch@gmail.com.
+I'd like to hear.  Shoot me an email at willghatch@gmail.com.  I would love feedback from some zsh experts -- I don't personally know any, so your feedback would be great.
