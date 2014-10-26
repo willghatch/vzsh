@@ -15,6 +15,7 @@
      #because I thought I would want it, or at least want to think about it, but didn't want to make a final decision yet...
 
 
+VZSH_GRML_LOADED=true
 
 
 # just type '...' to get '../..'

@@ -96,9 +96,12 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     # funcs from grml-funcs
     bindkey -M vicmd 'md' inPlaceMkDirs
     bindkey -M vicmd 'g2' jump_after_first_word
-    bindkey -M viins . rationalise-dot
-    # without this, typing a . aborts incremental history search
-    bindkey -M isearch . self-insert
+
+    if [[ -n "$VZSH_GRML_LOADED" ]]; then
+        bindkey -M viins . rationalise-dot
+        # without this, typing a . aborts incremental history search
+        bindkey -M isearch . self-insert
+    fi
 fi
 
 if [[ "$VZSH_ADD_HELP_KEY" = "true" ]]; then
