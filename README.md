@@ -117,6 +117,7 @@ I took a bunch of their stuff, modified it, and stuck it in here.
 
 - rationalise-dot - type ... and get ../.. -- add another . and get ../../..
 - ... ok, just scan through the source to see what useful functions are there.
+- (but the source is pretty messy, because it's just been a file I've been working on deciding what I like from grml... but it's useful enough that I added it despite being a mess)
 
 setopt
 ------
