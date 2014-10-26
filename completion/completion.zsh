@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+VZSH_COMPLETION_LOADED=true
 
 ############### NOTE here -
 # I don't think I really understand the right way to configure zsh completers, but I'm sick of trying

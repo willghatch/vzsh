@@ -73,8 +73,8 @@ Useful functions for defining prefix commands (emacs-style!) with built in key l
 Prefix maps automatically have a map listing command bound to $HELP_KEY which lists the bindings in the map (like emacs does it).
 For now, bindings within maps must be specified with literal characters (including $HELP_KEY), because I haven't written any sort of parser for it.
 
-- VZSH_REMAP_KEYS_P - this defaults to true if sourced by vzsh.zsh (IE if you load up all the plugins), false otherwise.  If set to "true", the keys plugin maps useful functions from the other plugins, and turns on a hybrid emacs/vi mode (as an emacs evil-mode user, I can promise you it's better that way).
-- VZSH_ADD_HELP_KEY - defaults to true.  Sets Control-H to be a help prefix -- C-hh gives general help, C-hb lists the current keybindings, C-hs lists available snippets, C-hC-h lists helpers available in help map.
+- VZSH_REMAP_KEYS_P - this defaults to true.  If set to "true", the keys plugin maps useful functions from the other plugins, and turns on a hybrid emacs/vi mode (as an emacs evil-mode user, I can promise you it's better that way).
+- VZSH_ADD_HELP_KEY - defaults to true, and is always true if other keys are remapped.  Sets Control-H to be a help prefix -- C-hh gives general help, C-hb lists the current keybindings, C-hs lists available snippets, C-hC-h lists helpers available in help map.
 - HELP_KEY - defaults to 'C-h'.
 
 If key remapping is set up, it provides the following:
@@ -91,6 +91,10 @@ completion map (in insert/default mode)
 - M-Hd - insert date (needs grml module)
 - M-hm - use a bunch of completers (needs completion module)
 - M-hM - same as above, but matches anywhere in the word
+- tab - normal completion, with 'smartcase' style matching, and matching - to _. (needs completion module)
+- backtab (shift-tab) - same as above, but matching anywhere in the completion, rather than just the start (needs completion module)
+
+Note that if you want to use these completers but you have custom completion setup already, you should read the completion section.
 
 vi command mode stuff:
 - esc - this goes from insert to command mode, so technically this is in the wrong place
@@ -128,11 +132,6 @@ completion
 ----------
 
 After so much frustration trying to figure out how to customize different completion commands to behave the way I wanted, I wrapped zsh completion with my own system to be able to define different keys to complete in different ways.  This was largely born out of frustration, and if I learn about the "right way" to do this later, it may simply be replaced by some clear documentation about that, with a good default setup.
-
-With the keys module set up (with key remapping on), this provides the following completions
-- tab - normal completion, with 'smartcase' style matching, and matching - to _.
-- backtab (shift-tab) - same as above, but matching anywhere in the completion, rather than just the start
-- completion map on M-h described in the key module above
 
 This module screws with a bunch of style settings, because I couldn't get it to play nicely and have the styles work for each completer like I wanted, but it will run $COMPLETER_DEFAULT_SETUP (if you define it) after any completion is made, to return settings back to the way you want them.  I think I've found the right way to do this without mucking with the global styles, so I'll probably fix this later when I have some time for it (supposing I'm right about it...).
 

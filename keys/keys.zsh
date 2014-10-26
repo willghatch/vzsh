@@ -88,10 +88,12 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey-to-prefix-map completionkey d insert-datestamp
     bindkey -r viins '^[h'
     bindkey -M viins '^[h' completionkey
-    # ^i is tab
-    bindkey -M viins '^i' complete-std
-    # ^[[Z is backtab...
-    bindkey -M viins '^[[Z' complete-std-anywhere
+    if [[ -n "$VZSH_COMPLETION_LOADED" ]]; then
+        # ^i is tab
+        bindkey -M viins '^i' complete-std
+        # ^[[Z is backtab...
+        bindkey -M viins '^[[Z' complete-std-anywhere
+    fi
 
     # funcs from grml-funcs
     bindkey -M vicmd 'md' inPlaceMkDirs

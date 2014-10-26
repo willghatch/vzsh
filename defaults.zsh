@@ -4,7 +4,7 @@
 VZSH_DEFAULT_SET=true # make the various plugins not try to re-source this
 
 if [[ -z "$VZSH_REMAP_KEYS_P" ]]; then
-    VZSH_REMAP_KEYS_P='false'
+    VZSH_REMAP_KEYS_P='true'
 fi
 if [[ -z "$VZSH_CACHE" ]]; then
     VZSH_CACHE=$HOME/.cache/vzsh
