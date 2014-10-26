@@ -77,6 +77,35 @@ For now, bindings within maps must be specified with literal characters (includi
 - VZSH_ADD_HELP_KEY - defaults to true.  Sets Control-H to be a help prefix -- C-hh gives general help, C-hb lists the current keybindings, C-hs lists available snippets, C-hC-h lists helpers available in help map.
 - HELP_KEY - defaults to 'C-h'.
 
+If key remapping is set up, it provides the following:
+
+completion map (in insert/default mode)
+
+- M-hs - expand snippet (needs snippet module)
+- M-hn - complete word from history (needs completion module)
+- M-hN - complete word from history matching anywhere in the completion (needs completion module)
+- M-hg - GNU generic completion (works for commands that have a standard --help option) (needs completion module)
+- M-he - expand word (eg. $HOME -> /home/wgh) (needs completion module)
+- M-ht - complete word from tmux or screen window (needs completion and grml modules)
+- M-hp - insert last entered word (needs grml module)
+- M-Hd - insert date (needs grml module)
+- M-hm - use a bunch of completers (needs completion module)
+- M-hM - same as above, but matches anywhere in the word
+
+vi command mode stuff:
+- esc - this goes from insert to command mode, so technically this is in the wrong place
+- md - make directory named under cursor (needs grml module)
+- g2 - jump to second word on the command line (needs grml module)
+
+Also makes ... become ../..
+And I decided not to put it... but you should really add this:
+
+    bindkey -M viins 'jk' vi-cmd-mode
+    bindkey -M viins 'kj' vi-cmd-mode
+
+so you can just mash j and k together to get out of insert mode.
+
+
 grml
 ----
 
@@ -100,7 +129,12 @@ completion
 
 After so much frustration trying to figure out how to customize different completion commands to behave the way I wanted, I wrapped zsh completion with my own system to be able to define different keys to complete in different ways.  This was largely born out of frustration, and if I learn about the "right way" to do this later, it may simply be replaced by some clear documentation about that, with a good default setup.
 
-TODO - document this better...
+Note: Some more scouring of the docs later, and I think I see the way it's supposed to be done, so later I'll make this work the normal way.
+
+With the keys module set up (with key remapping on), this provides the following completions
+- tab - normal completion, with 'smartcase' style matching, and matching - to _.
+- backtab (shift-tab) - same as above, but matching anywhere in the completion, rather than just the start
+- completion map on M-h described in the key module above
 
 Questions? Comments?
 --------------------
