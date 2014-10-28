@@ -1,7 +1,7 @@
 VZSH
 ====
 
-vzsh is a project that has grown out of my constant configuration of dotfiles.  I realized that my configuration was huge enough, and that others might benefit if I extracted the more generic parts.  So here it is:  a collection of some useful plugins that can also be used as a simple batteries-included zsh starting point (like grml or oh-my-zsh)
+vzsh is a project that has grown out of my constant configuration of dotfiles.  I realized that my configuration was huge enough, and that others might benefit if I extracted the more generic parts.  So here it is:  a collection of some useful plugins that can also be used as a simple batteries-included zsh starting point (like grml or oh-my-zsh).  Note that it is in early stages and will change as I have time to hack on it.
 
 Stand alone Install
 -------------------
@@ -113,7 +113,7 @@ so you can just mash j and k together to get out of insert mode.
 grml
 ----
 
-I took a bunch of their stuff, modified it, and stuck it in here.
+I took a bunch of their stuff, modified some of it, and stuck it in here.
 
 - rationalise-dot - type ... and get ../.. -- add another . and get ../../..
 - ... ok, just scan through the source to see what useful functions are there.
@@ -135,6 +135,11 @@ completion
 After so much frustration trying to figure out how to customize different completion commands to behave the way I wanted, I wrapped zsh completion with my own system to be able to define different keys to complete in different ways.  This was largely born out of frustration, and if I learn about the "right way" to do this later, it may simply be replaced by some clear documentation about that, with a good default setup.
 
 This module screws with a bunch of style settings, because I couldn't get it to play nicely and have the styles work for each completer like I wanted, but it will run $COMPLETER_DEFAULT_SETUP (if you define it) after any completion is made, to return settings back to the way you want them.  I think I've found the right way to do this without mucking with the global styles, so I'll probably fix this later when I have some time for it (supposing I'm right about it...).
+
+zaw-sources
+-----------
+
+These are sources for the wonderful [zaw](https://github.com/zsh-users/zaw) plugin to do its thing with.  Widgets, functions, aliases, programs, and commands in general.  They were just so quick to write and they seemed like they should just be with zaw for completeness.  These need to be sourced after zaw.
 
 Questions? Comments?
 --------------------
