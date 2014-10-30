@@ -7,7 +7,7 @@ if [[ -z "$VZSH_REMAP_KEYS_P" ]]; then
     VZSH_REMAP_KEYS_P='true'
 fi
 if [[ -z "$VZSH_CACHE" ]]; then
-    VZSH_CACHE=$HOME/.cache/vzsh
+    VZSH_CACHE=$HOME/.cache/zsh
 fi
 if [[ ! -d $VZSH_CACHE ]]; then
     mkdir -p $VZSH_CACHE
