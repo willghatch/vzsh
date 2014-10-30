@@ -76,24 +76,36 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
 
     # completion
     define-prefix-command completionkey
-    bindkey-to-prefix-map completionkey g complete-gnu
-    bindkey-to-prefix-map completionkey e complete-expand
-    bindkey-to-prefix-map completionkey n complete-history
-    bindkey-to-prefix-map completionkey N complete-history-anywhere
-    bindkey-to-prefix-map completionkey m complete-maximal
-    bindkey-to-prefix-map completionkey M complete-maximal-anywhere
+    bindkey-to-prefix-map completionkey g vzsh-complete-gnu
+    bindkey-to-prefix-map completionkey e vzsh-complete-expand
+    bindkey-to-prefix-map completionkey n vzsh-complete-history
+    bindkey-to-prefix-map completionkey N vzsh-complete-history-anywhere
+    bindkey-to-prefix-map completionkey m vzsh-complete-maximal
+    bindkey-to-prefix-map completionkey M vzsh-complete-maximal-anywhere
+    bindkey-to-prefix-map completionkey t vzsh-complete-tmux
+    bindkey-to-prefix-map completionkey T vzsh-complete-tmux-anywhere
     bindkey-to-prefix-map completionkey s snippet-expand
-    bindkey-to-prefix-map completionkey t complete-tmux
     bindkey-to-prefix-map completionkey p insert-last-typed-word
     bindkey-to-prefix-map completionkey d insert-datestamp
     bindkey -r viins '^[h'
-    bindkey -M viins '^[h' completionkey
+    #bindkey -M viins '^[h' completionkey
+    # TODO - for some reason the completers won't run properly now if they're in
+    # a sub-map...
     if [[ -n "$VZSH_COMPLETION_LOADED" ]]; then
         # ^i is tab
-        bindkey -M viins '^i' complete-std
         # ^[[Z is backtab...
-        bindkey -M viins '^[[Z' complete-std-anywhere
+        bindkey -M viins '^[[Z' vzsh-complete-std-anywhere
     fi
+    bindkey '^[hg' vzsh-complete-gnu
+    bindkey '^[he' vzsh-complete-expand
+    bindkey '^[hn' vzsh-complete-history
+    bindkey '^[hN' vzsh-complete-history-anywhere
+    bindkey '^[hm' vzsh-complete-maximal
+    bindkey '^[hM' vzsh-complete-maximal-anywhere
+    bindkey '^[ht' vzsh-complete-tmux
+    bindkey '^[hs' snippet-expand
+    bindkey '^[hp' insert-last-typed-word
+    bindkey '^[hd' insert-datestamp
 
     # funcs from grml-funcs
     bindkey -M vicmd 'md' inPlaceMkDirs
