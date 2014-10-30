@@ -132,9 +132,12 @@ Ok, this should be a theme, but I haven't bothered changing that yet.  Source it
 completion
 ----------
 
-After so much frustration trying to figure out how to customize different completion commands to behave the way I wanted, I wrapped zsh completion with my own system to be able to define different keys to complete in different ways.  This was largely born out of frustration, and if I learn about the "right way" to do this later, it may simply be replaced by some clear documentation about that, with a good default setup.
+This module sets up some completion styles (if you have your own defined before this is run they might be overwritten), and defines some completion widgets with different behaviors.  This is most useful if you also source the keys file after, so they are bound.
 
-This module screws with a bunch of style settings, because I couldn't get it to play nicely and have the styles work for each completer like I wanted, but it will run $COMPLETER_DEFAULT_SETUP (if you define it) after any completion is made, to return settings back to the way you want them.  I think I've found the right way to do this without mucking with the global styles, so I'll probably fix this later when I have some time for it (supposing I'm right about it...).
+cdr
+---
+
+This module sets up the cdr (cd to recent directory) function that is explained in the zsh docs.  It is simply a convenient setup ready to source.
 
 zaw-sources
 -----------
