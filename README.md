@@ -1,7 +1,7 @@
 VZSH
 ====
 
-vzsh is a project that has grown out of my constant configuration of dotfiles.  I realized that my configuration was huge enough, and that others might benefit if I extracted the more generic parts.  So here it is:  a collection of some useful plugins that can also be used as a simple batteries-included zsh starting point (like grml or oh-my-zsh).  Note that it is in early stages and will change as I have time to hack on it.
+vzsh is a project that has grown out of my constant configuration of dotfiles.  I realized that my configuration was huge enough, and that others might benefit if I extracted the more generic parts.  So here it is:  a collection of some useful plugins.  Much of this is stuff that floats around in snippets online that I want to make available to be sourced easily without combing the web.  Some I have improved.  Some I just wrote up myself.  Note that it is in early stages and will change as I have time to hack on it.
 
 Stand alone Install
 -------------------
