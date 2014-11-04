@@ -55,10 +55,12 @@ setopt unset
 #typeset -U path cdpath fpath manpath
 
 # make help (m-h) be more helpful
-unalias run-help
-autoload run-help
+autoload -Uz run-help
 autoload run-help-git
 autoload run-help-svn
 autoload run-help-svk
+autoload run-help-sudo
+autoload run-help-openssl
+autoload run-help-p4
 
 
