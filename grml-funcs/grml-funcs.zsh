@@ -365,9 +365,6 @@ xtrename() {
 
 insert-datestamp() { LBUFFER+=${(%):-'%D{%Y-%m-%d}'}; }
 zle -N insert-datestamp
-insert-last-typed-word() { zle insert-last-word -- 0 -1 }
-zle -N insert-last-typed-word
-
 
 _complete_tmux_display() {
     [[ "$TERM" != "screen" && -z "$TMUX" ]] && return 1
