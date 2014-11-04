@@ -143,7 +143,7 @@ Set basic, sane default options.
 prompt
 ------
 
-Ok, this should be a theme, but I haven't bothered changing that yet.  Source it if you want my cool prompt.
+This has my cool prompt.  The colors can be customized (after the module is loaded) with the variables VZSH_PROMPT_STYLES and VZSH_KEYMAP_INDICATOR -- look in the source of prompt.zsh to see the options.
 
 completion
 ----------
@@ -160,7 +160,7 @@ This module sets up the cdr (cd to recent directory) function that is explained 
 zaw-sources
 -----------
 
-These are sources for the wonderful [zaw](https://github.com/zsh-users/zaw) plugin to do its thing with.  Widgets, functions, aliases, programs, and commands in general.  They were just so quick to write and they seemed like they should just be with zaw for completeness.  These need to be sourced after zaw.
+These are sources for the wonderful [zaw](https://github.com/zsh-users/zaw) plugin to do its thing with.  Widgets, functions, aliases, programs, and commands in general.  They were just so quick to write and they seemed like they should just be with zaw for completeness.  These need to be sourced after zaw, or it will have no effect.
 
 Questions? Comments?
 --------------------
