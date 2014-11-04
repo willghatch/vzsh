@@ -32,7 +32,7 @@ Configuration
 
 Configuration for each sub-plugin is discussed in its section.  Some global configuration that is pulled in by some of the plugins includes variables that you can customize (including some general zsh variables that I just set to some defaults if they're empty):
 
-- VZSH_CACHE - this defaults to $HOME/.cache/vzsh, and is automatically created if it doesn't exist.
+- VZSH_CACHE - this defaults to $HOME/.cache/zsh, and is automatically created if it doesn't exist.
 - HISTFILE - if you haven't already set it up, this defaults to $VZSH_CACHE/history
 - HISTSIZE - if you haven't already set it up, this defaults to 1000
 - SAVEHIST - if you haven't already set it up, this defaults to 1000
