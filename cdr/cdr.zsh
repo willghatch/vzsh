@@ -17,5 +17,11 @@ fi
 autoload -Uz chpwd_recent_dirs cdr
 autoload -U add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*' recent-dirs-file $VZSH_RECENT_DIRS_DIR/rd-${TTY##*/} +
+if [[ "$VZSH_CDR_FILE_STYLE" = "multiple" ]]; then
+    zstyle ':chpwd:*' recent-dirs-file $VZSH_RECENT_DIRS_DIR/rd-${TTY##*/} +
+elif [[ "$VZSH_CDR_FILE_STYLE" = "none" ]]; then
+    # do nothing here
+else
+    zstyle ':chpwd:*' recent-dirs-file $VZSH_RECENT_DIRS_DIR/recent
+fi
 

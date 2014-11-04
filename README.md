@@ -139,6 +139,8 @@ cdr
 
 This module sets up the cdr (cd to recent directory) function that is explained in the zsh docs.  It is simply a convenient setup ready to source.
 
+- VZSH_CDR_FILE_STYLE - if set to "multiple", a style is set to keep recent dir history split up by tty.  If set to "none", no style is set.  If not set, a style is set to put the recent dirs in VZSH_CACHE/recent-dirs/recent
+
 zaw-sources
 -----------
 
