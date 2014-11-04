@@ -35,27 +35,7 @@ if [[ -z "$REPORTTIME" ]]; then
     REPORTTIME=5
 fi
 
-if [[ -z "$ZLE_LINE_INIT_FUNCS" ]]; then
-    typeset -ag ZLE_LINE_INIT_FUNCS
-fi
-zle-line-init(){
-    CUR_KEYMAP=$KEYMAP
-    for func in $ZLE_LINE_INIT_FUNCS; do
-        $func
-    done
-}
-zle -N zle-line-init
-
-if [[ -z "$ZLE_KEYMAP_SELECT_FUNCS" ]]; then
-    typeset -ag ZLE_KEYMAP_SELECT_FUNCS
-fi
-zle-keymap-select(){
-    CUR_KEYMAP=$KEYMAP
-    for func in $ZLE_KEYMAP_SELECT_FUNCS; do
-        $func
-    done
-}
-zle -N zle-keymap-select
+source ${${0:A}:h}/hooks.zsh
 
 help-help(){
     echo "TODO - put help here" | $PAGER

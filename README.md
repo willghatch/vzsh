@@ -39,8 +39,6 @@ Configuration for each sub-plugin is discussed in its section.  Some global conf
 - REPORTTIME - if you haven't already set it up, this defaults to 5 -- it's the number of seconds for a program to run for it to automatically report time stats.
 - PAGER - if you haven't already set it up, this defaults to "less"
 - COMPINSTALL_FILE - defaults to $VZSH_CACHE/compinstall
-- ZLE_LINE_INIT_FUNCS - this is an array of function names to run when zle-line-init is run - a couple of sub-plugins add to this
-- ZLE_KEYMAP_SELECT_FUNCS - this is an array of function names to run when zle-keymap-select is run - a couple of sub-plugins add to this
 
 Features
 ========
@@ -109,6 +107,24 @@ And I decided not to put it... but you should really add this:
 
 so you can just mash j and k together to get out of insert mode.
 
+hooks
+-----
+
+Mostly copied from add-zsh-hook's implementation, this allows new hooks to be defined, and defines the zle-line-init and zle-keymap-select functions that are auto-run if they exist, with the hooks zle_line_init_hook and zle_keymap_select_hook.
+
+Usage:
+
+    vzsh-add-hook zle_keymap_select_hook my-func
+    # now my-func will be run every time a keymap is selected
+
+    # define a new hook
+    vzsh-define-hook my_hook
+    vzsh-add-hook my_hook my-function
+    # and now this will execute all the functions defined in a hook (in this
+    # case, that's just my-function)
+    vzsh-run-hook my_hook
+
+vzsh-add-hook supports the same options add-zsh-hook supports.
 
 grml
 ----

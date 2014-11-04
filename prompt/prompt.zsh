@@ -30,7 +30,7 @@ getGitBranchForPrompt() {
 PS1_git_branch="\$(getGitBranchForPrompt)"
 
 update-prompt() {
-    local VIMODE=$CUR_KEYMAP
+    local VIMODE=$ZSH_CUR_KEYMAP
     if [[ "$VIMODE" = "viins" || "$VIMODE" = "emacs" || "$VIMODE" = "main" ]]
     then
         VIMODE="%K{magenta}%F{black}I%k"
@@ -57,6 +57,6 @@ update-prompt() {
     zle reset-prompt
 }
 
-ZLE_LINE_INIT_FUNCS=( $ZLE_LINE_INIT_FUNCS update-prompt )
-ZLE_KEYMAP_SELECT_FUNCS=( $ZLE_KEYMAP_SELECT_FUNCS update-prompt )
+vzsh-add-hook zle_line_init_hook update-prompt
+vzsh-add-hook zle_keymap_select_hook update-prompt
 
