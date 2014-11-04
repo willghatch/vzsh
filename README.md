@@ -85,7 +85,8 @@ completion map (in insert/default mode)
 - M-hg - GNU generic completion (works for commands that have a standard --help option) (needs completion module)
 - M-he - expand word (eg. $HOME -> /home/wgh) (needs completion module)
 - M-ht - complete word from tmux or screen window (needs completion and grml modules)
-- M-hp - insert last entered word (needs grml module)
+- M-hp - copy last word
+- M-hP - copy last shell word (IE everything in eg. quotes)
 - M-Hd - insert date (needs grml module)
 - M-hm - use a bunch of completers (needs completion module)
 - M-hM - same as above, but matches anywhere in the word
