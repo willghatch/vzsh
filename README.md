@@ -9,7 +9,7 @@ Stand alone Install
 Clone the repo and source it
 
     git clone https://github.com/willghatch/vzsh.git
-    echo "source vzsh/vzsh.zsh" >> ~/.zshrc
+    echo "source vzsh/vzsh.plugin.zsh" >> ~/.zshrc
 
 done!
 
@@ -18,12 +18,12 @@ Antigen install
 
 Seriously, [antigen](https://github.com/zsh-users/antigen) is a better way to go about managing zsh plugins.
 
-    antigen bundle https://github.com/willghatch/vzsh.git
+    antigen bundle willghatch/vzsh
 
 or
 
-    antigen bundle https://github.com/willghatch/vzsh.git completion
-    antigen bundle https://github.com/willghatch/vzsh.git keys
+    antigen bundle willghatch/vzsh completion
+    antigen bundle willghatch/vzsh keys
 
 to get just the parts you want.
 
