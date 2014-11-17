@@ -22,7 +22,7 @@ Seriously, [antigen](https://github.com/zsh-users/antigen) is a better way to go
 
 or
 
-    antigen bundle https://github.com/willghatch/vzsh.git snippets
+    antigen bundle https://github.com/willghatch/vzsh.git completion
     antigen bundle https://github.com/willghatch/vzsh.git keys
 
 to get just the parts you want.
@@ -43,21 +43,7 @@ Configuration for each sub-plugin is discussed in its section.  Some global conf
 Features
 ========
 
-Snippets
---------
-
-Expand text anywhere on the command line, like aliases.
-
-    ps aux tg! # ! represents cursor position
-    # run snippet-expand or hit M-hs (if you load the keys module)
-    ps aux | grep! # ! is your new cursor position
-
-Add snippets
-
-    snippet-add d "/my/long/directory/or/something like that"
-    # then you can expand d to... that long thing
-
-List snippets with help-list-snippets function, or (C-hs if you load the keys module).
+Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets)
 
 Keys
 ----

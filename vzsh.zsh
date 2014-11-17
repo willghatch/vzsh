@@ -22,9 +22,6 @@ source $VZSH_HOME/defaults.zsh
 # sets some sane options that are generally agreeable
 source $VZSH_HOME/setopt/setopt.zsh
 
-# expand snippets anywhere on the command line
-source $VZSH_HOME/snippets/snippets.zsh
-
 ###### COMPLETION
 # COMPLETER_DEFAULT_SETUP # name of command to run before each completer
 # mk-completer -- TODO - explain...
