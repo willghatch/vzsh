@@ -43,7 +43,7 @@ Configuration for each sub-plugin is discussed in its section.  Some global conf
 Features
 ========
 
-Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets)
+Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), and the zaw sources [here](https://github.com/willghatch/zsh-zaw-extras)
 
 Keys
 ----
@@ -143,11 +143,6 @@ cdr
 This module sets up the cdr (cd to recent directory) function that is explained in the zsh docs.  It is simply a convenient setup ready to source.
 
 - VZSH_CDR_FILE_STYLE - if set to "multiple", a style is set to keep recent dir history split up by tty.  If set to "none", no style is set.  If not set, a style is set to put the recent dirs in VZSH_CACHE/recent-dirs/recent
-
-zaw-sources
------------
-
-These are sources for the wonderful [zaw](https://github.com/zsh-users/zaw) plugin to do its thing with.  Widgets, functions, aliases, programs, and commands in general.  They were just so quick to write and they seemed like they should just be with zaw for completeness.  These need to be sourced after zaw, or it will have no effect.
 
 Questions? Comments?
 --------------------

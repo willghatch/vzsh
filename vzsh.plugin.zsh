@@ -39,14 +39,6 @@ source $VZSH_HOME/cdr/cdr.zsh
 # prefer
 source $VZSH_HOME/prompt/prompt.zsh
 
-# source the zaw stuff if it exists, but if you source zaw before cdr is defined,
-# you don't get the cdr source set up... bleh.
-if functions zaw >/dev/null 2>&1 ; then
-    for f in $VZSH_HOME/zaw-sources/*.zsh; do
-        source $f
-    done
-fi
-
 # note that keys.zsh provides useful functions, but won't alter key bindings
 # if VZSH_REMAP_KEYS_P is set to 'false'
 source $VZSH_HOME/keys/keys.zsh
