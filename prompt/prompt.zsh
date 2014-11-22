@@ -12,7 +12,7 @@ VZSH_PROMPT_STYLES[host]="%B%F{yellow}"
 VZSH_PROMPT_STYLES[userhost_brackets]="%b%F{green}"
 VZSH_PROMPT_STYLES[username]="%B%F{green}"
 VZSH_PROMPT_STYLES[at]="%b%F{green}"
-VZSH_PROMPT_STYLES[dir]="%B%F{blue}"
+VZSH_PROMPT_STYLES[dir_owner]="%B%F{blue}"
 VZSH_PROMPT_STYLES[dir_group]="%B%F{green}"
 VZSH_PROMPT_STYLES[dir_nowrite]="%B%F{red}"
 VZSH_PROMPT_STYLES[dir_write]="%B%F{yellow}"
@@ -82,7 +82,7 @@ PS1_jobs='%(1j, ${VZSH_PROMPT_STYLES[jobs_brackets]}[${VZSH_PROMPT_STYLES[jobs]}
     dir="$1"
     if [[ -w "$dir" ]]; then
         if [[ -O "$dir" ]]; then
-            echo "${VZSH_PROMPT_STYLES[dir]}"
+            echo "${VZSH_PROMPT_STYLES[dir_owner]}"
         else
             local dirGrp
             dirGrp=$(stat -c %g "$dir")
