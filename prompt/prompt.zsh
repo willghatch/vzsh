@@ -58,23 +58,44 @@ PS1_jobs='%(1j, ${VZSH_PROMPT_STYLES[jobs_brackets]}[${VZSH_PROMPT_STYLES[jobs]}
 }
 
 --getPwdForPrompt() {
+    local out
+    local dir
+    dir="$PWD"
+    out=""
+    while true; do
+        if [[ "$dir" = "$HOME" ]]; then
+            echo "$(--getDirColor $dir)~/${out}"
+            return
+        elif [[ "$dir" = "/" ]]; then
+            echo "$(--getDirColor $dir)/${out}"
+            return
+        else
+            out="$(--getDirColor $dir)$(basename $dir)/${out}"
+            dir="$(dirname $dir)"
+        fi
+    done
+}
+
+--getDirColor() {
     # I want to know if I'm the owner, and if it's writeable
-    if [[ -w "$PWD" ]]; then
-        if [[ -O "$PWD" ]]; then
-            echo "${VZSH_PROMPT_STYLES[dir]}%~"
+    local dir
+    dir="$1"
+    if [[ -w "$dir" ]]; then
+        if [[ -O "$dir" ]]; then
+            echo "${VZSH_PROMPT_STYLES[dir]}"
         else
             local dirGrp
-            dirGrp=$(stat -c %g "$PWD")
+            dirGrp=$(stat -c %g "$dir")
             for id in $(id -G); do
                 if [[ "$id" -eq "$dirGrp" ]]; then
-                    echo "${VZSH_PROMPT_STYLES[dir_group]}%~"
+                    echo "${VZSH_PROMPT_STYLES[dir_group]}"
                     return
                 fi
             done
-            echo "${VZSH_PROMPT_STYLES[dir_write]}%~"
+            echo "${VZSH_PROMPT_STYLES[dir_write]}"
         fi
     else
-        echo "${VZSH_PROMPT_STYLES[dir_nowrite]}%~"
+        echo "${VZSH_PROMPT_STYLES[dir_nowrite]}"
     fi
 }
 
