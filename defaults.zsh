@@ -35,8 +35,6 @@ if [[ -z "$REPORTTIME" ]]; then
     REPORTTIME=5
 fi
 
-source ${${0:A}:h}/hooks.zsh
-
 help-help(){
     echo "TODO - put help here" | $PAGER
 }

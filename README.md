@@ -3,25 +3,27 @@ VZSH
 
 vzsh is a project that has grown out of my constant configuration of dotfiles.  I realized that my configuration was huge enough, and that others might benefit if I extracted the more generic parts.  So here it is:  a collection of some useful plugins.  Much of this is stuff that floats around in snippets online that I want to make available to be sourced easily without combing the web.  Some I have improved.  Some I just wrote up myself.  Note that it is in early stages and will change as I have time to hack on it.
 
+NOTICE
+------
+
+I am gutting this and splitting it into separate plugins.  Soon this will be replaced with a starter .zshrc that includes them all and sets some nice options.
+
 Stand alone Install
 -------------------
 
-Clone the repo and source it
-
-    git clone https://github.com/willghatch/vzsh.git
-    echo "source vzsh/vzsh.plugin.zsh" >> ~/.zshrc
-
-done!
+Clone the repo and source it.  It depends on my zsh-hooks plugin.
 
 Antigen install
 ---------------
 
 Seriously, [antigen](https://github.com/zsh-users/antigen) is a better way to go about managing zsh plugins.
 
+    antigen bundle willghatch/zsh-hooks
     antigen bundle willghatch/vzsh
 
 or
 
+    antigen bundle willghatch/zsh-hooks
     antigen bundle willghatch/vzsh completion
     antigen bundle willghatch/vzsh keys
 
@@ -43,7 +45,7 @@ Configuration for each sub-plugin is discussed in its section.  Some global conf
 Features
 ========
 
-Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), and the zaw sources [here](https://github.com/willghatch/zsh-zaw-extras)
+Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), and the zaw sources [here](https://github.com/willghatch/zsh-zaw-extras), hooks to zsh-hooks, and prompt to zsh-megaprompt.
 
 Keys
 ----
@@ -94,25 +96,6 @@ And I decided not to put it... but you should really add this:
 
 so you can just mash j and k together to get out of insert mode.
 
-hooks
------
-
-Mostly copied from add-zsh-hook's implementation, this allows new hooks to be defined, and defines the zle-line-init and zle-keymap-select functions that are auto-run if they exist, with the hooks zle_line_init_hook and zle_keymap_select_hook.
-
-Usage:
-
-    vzsh-add-hook zle_keymap_select_hook my-func
-    # now my-func will be run every time a keymap is selected
-
-    # define a new hook
-    vzsh-define-hook my_hook
-    vzsh-add-hook my_hook my-function
-    # and now this will execute all the functions defined in a hook (in this
-    # case, that's just my-function)
-    vzsh-run-hook my_hook
-
-vzsh-add-hook supports the same options add-zsh-hook supports.
-
 grml
 ----
 
@@ -126,11 +109,6 @@ setopt
 ------
 
 Set basic, sane default options.
-
-prompt
-------
-
-This has my cool prompt.  It is maximal, not minimal.  Features directory coloring based on perissions/ownership, git/hg branch when in a repo, num jobs if any, exit status if non-zero, current keymap indicator, and current history number.  And time and username/host.  It is on two lines, so your command won't be crowded out by all the information, but all the information is there when you need it.  The colors can be customized (after the module is loaded) with the variables VZSH_PROMPT_STYLES and VZSH_KEYMAP_INDICATOR -- look in the source of prompt.zsh to see the options.
 
 completion
 ----------
