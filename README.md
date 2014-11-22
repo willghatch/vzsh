@@ -45,7 +45,7 @@ Configuration for each sub-plugin is discussed in its section.  Some global conf
 Features
 ========
 
-Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), and the zaw sources [here](https://github.com/willghatch/zsh-zaw-extras), hooks to zsh-hooks, and prompt to zsh-megaprompt.
+Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), and the zaw sources [here](https://github.com/willghatch/zsh-zaw-extras), hooks to zsh-hooks, and prompt to zsh-megaprompt.  And now grml-funcs to willghatch/grml-funcs
 
 Keys
 ----
@@ -95,15 +95,6 @@ And I decided not to put it... but you should really add this:
     bindkey -M viins 'kj' vi-cmd-mode
 
 so you can just mash j and k together to get out of insert mode.
-
-grml
-----
-
-I took a bunch of their stuff, modified some of it, and stuck it in here.
-
-- rationalise-dot - type ... and get ../.. -- add another . and get ../../..
-- ... ok, just scan through the source to see what useful functions are there.
-- (but the source is pretty messy, because it's just been a file I've been working on deciding what I like from grml... but it's useful enough that I added it despite being a mess)
 
 setopt
 ------

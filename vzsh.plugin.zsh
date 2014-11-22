@@ -29,9 +29,6 @@ source $VZSH_HOME/setopt/setopt.zsh
 # setup -- at least it works for me
 source $VZSH_HOME/completion/completion.zsh
 
-# functions adapted from the grml zsh distribution -- though I've made changes
-source $VZSH_HOME/grml-funcs/grml-funcs.zsh
-
 # note that keys.zsh provides useful functions, but won't alter key bindings
 # if VZSH_REMAP_KEYS_P is set to 'false'
 source $VZSH_HOME/keys/keys.zsh
