@@ -13,22 +13,36 @@ VZSH_PROMPT_STYLES[userhost_brackets]="%b%F{green}"
 VZSH_PROMPT_STYLES[username]="%B%F{green}"
 VZSH_PROMPT_STYLES[at]="%b%F{green}"
 VZSH_PROMPT_STYLES[dir]="%B%F{blue}"
-VZSH_PROMPT_STYLES[histnum]="%b%F{yellow}"
+VZSH_PROMPT_STYLES[histnum]="%b%F{blue}"
 VZSH_PROMPT_STYLES[dollar]="%b%F{default}"
 VZSH_PROMPT_STYLES[git_master]="%b%F{white}"
 VZSH_PROMPT_STYLES[git_other]="%b%F{red}"
+VZSH_PROMPT_STYLES[jobs]="%B%F{magenta}"
+VZSH_PROMPT_STYLES[jobs_brackets]="%b%F{red}"
 typeset -Ag VZSH_KEYMAP_INDICATOR
-VZSH_KEYMAP_INDICATOR[main]="%K{magenta}%F{black}I%k"
-VZSH_KEYMAP_INDICATOR[viins]="%K{magenta}%F{black}I%k"
-VZSH_KEYMAP_INDICATOR[emacs]="%K{magenta}%F{black}I%k"
-VZSH_KEYMAP_INDICATOR[vicmd]="%K{blue}%F{black}N%k"
-VZSH_KEYMAP_INDICATOR[opp]="%K{yellow}%F{black}O%k"
-VZSH_KEYMAP_INDICATOR[vivis]="%K{green}%F{black}V%k"
-VZSH_KEYMAP_INDICATOR[vivli]="%K{green}%F{black}V%k"
-VZSH_KEYMAP_INDICATOR[keymap_unlisted]="%K{white}%F{black}?%k"
-PS1_cmd_stat='%b%F{cyan}<%(?,%F{green}%?,%F{red}%?)%F{cyan}>'
+VZSH_KEYMAP_INDICATOR[main]="%b%K{magenta}%F{black}I%k"
+VZSH_KEYMAP_INDICATOR[viins]="%b%K{magenta}%F{black}I%k"
+VZSH_KEYMAP_INDICATOR[emacs]="%b%K{magenta}%F{black}I%k"
+VZSH_KEYMAP_INDICATOR[vicmd]="%b%K{blue}%F{black}N%k"
+VZSH_KEYMAP_INDICATOR[opp]="%b%K{yellow}%F{black}O%k"
+VZSH_KEYMAP_INDICATOR[vivis]="%b%K{green}%F{black}V%k"
+VZSH_KEYMAP_INDICATOR[vivli]="%b%K{green}%F{black}V%k"
+VZSH_KEYMAP_INDICATOR[keymap_unlisted]="%b%K{white}%F{black}?%k"
+PS1_cmd_stat='%(?,, %b%F{cyan}<%F{red}%?%F{cyan}>)'
+PS1_jobs='%(1j, ${VZSH_PROMPT_STYLES[jobs_brackets]}[${VZSH_PROMPT_STYLES[jobs]}%jj${VZSH_PROMPT_STYLES[jobs_brackets]}],)'
 
-getGitBranchForPrompt() {
+--getHgBranchForPrompt() {
+    local branch
+    branch=$(hg branch 2>/dev/null)
+    if [[ "$branch" = "default" ]]; then
+        echo "%F{grey}<${VZSH_PROMPT_STYLES[git_master]}${branch}%F{grey}> "
+    elif [[ -n "$branch" ]]; then
+        echo "%F{grey}<${VZSH_PROMPT_STYLES[git_other]}${branch}%F{grey}> "
+    fi
+}
+
+--getGitBranchForPrompt() {
+    local branch
     branch=$(git branch 2>/dev/null | fgrep '*')
     if [ "$branch" = "* master" ]
     then
@@ -48,7 +62,7 @@ update-prompt() {
         k=$VZSH_KEYMAP_INDICATOR[keymap_unlisted]
     fi
 
-    PS1="$s[time]%T ${s[userhost_brackets]}[${s[username]}%n${s[at]}@${s[host]}%m${s[userhost_brackets]}] \$(getGitBranchForPrompt)${s[dir]}%~ ${PS1_cmd_stat}
+    PS1="$s[time]%T ${s[userhost_brackets]}[${s[username]}%n${s[at]}@${s[host]}%m${s[userhost_brackets]}] \$(--getGitBranchForPrompt)\$(--getHgBranchForPrompt)${s[dir]}%~${PS1_jobs}${PS1_cmd_stat}
 ${k} ${s[histnum]}%h ${s[dollar]}%# "
 
     zle reset-prompt
