@@ -13,6 +13,9 @@ VZSH_PROMPT_STYLES[userhost_brackets]="%b%F{green}"
 VZSH_PROMPT_STYLES[username]="%B%F{green}"
 VZSH_PROMPT_STYLES[at]="%b%F{green}"
 VZSH_PROMPT_STYLES[dir]="%B%F{blue}"
+VZSH_PROMPT_STYLES[dir_group]="%B%F{green}"
+VZSH_PROMPT_STYLES[dir_nowrite]="%B%F{red}"
+VZSH_PROMPT_STYLES[dir_write]="%B%F{yellow}"
 VZSH_PROMPT_STYLES[histnum]="%b%F{blue}"
 VZSH_PROMPT_STYLES[dollar]="%b%F{default}"
 VZSH_PROMPT_STYLES[git_master]="%b%F{white}"
@@ -54,6 +57,27 @@ PS1_jobs='%(1j, ${VZSH_PROMPT_STYLES[jobs_brackets]}[${VZSH_PROMPT_STYLES[jobs]}
     echo $branch
 }
 
+--getPwdForPrompt() {
+    # I want to know if I'm the owner, and if it's writeable
+    if [[ -w "$PWD" ]]; then
+        if [[ -O "$PWD" ]]; then
+            echo "${VZSH_PROMPT_STYLES[dir]}%~"
+        else
+            local dirGrp
+            dirGrp=$(stat -c %g "$PWD")
+            for id in $(id -G); do
+                if [[ "$id" -eq "$dirGrp" ]]; then
+                    echo "${VZSH_PROMPT_STYLES[dir_group]}%~"
+                    return
+                fi
+            done
+            echo "${VZSH_PROMPT_STYLES[dir_write]}%~"
+        fi
+    else
+        echo "${VZSH_PROMPT_STYLES[dir_nowrite]}%~"
+    fi
+}
+
 update-prompt() {
     local -A s
     set -A s ${(kv)VZSH_PROMPT_STYLES}
@@ -62,7 +86,7 @@ update-prompt() {
         k=$VZSH_KEYMAP_INDICATOR[keymap_unlisted]
     fi
 
-    PS1="$s[time]%T ${s[userhost_brackets]}[${s[username]}%n${s[at]}@${s[host]}%m${s[userhost_brackets]}] \$(--getGitBranchForPrompt)\$(--getHgBranchForPrompt)${s[dir]}%~${PS1_jobs}${PS1_cmd_stat}
+    PS1="$s[time]%T ${s[userhost_brackets]}[${s[username]}%n${s[at]}@${s[host]}%m${s[userhost_brackets]}] \$(--getGitBranchForPrompt)\$(--getHgBranchForPrompt)\$(--getPwdForPrompt)${PS1_jobs}${PS1_cmd_stat}
 ${k} ${s[histnum]}%h ${s[dollar]}%# "
 
     zle reset-prompt
