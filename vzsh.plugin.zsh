@@ -32,9 +32,6 @@ source $VZSH_HOME/completion/completion.zsh
 # functions adapted from the grml zsh distribution -- though I've made changes
 source $VZSH_HOME/grml-funcs/grml-funcs.zsh
 
-# cdr, because it's cool
-source $VZSH_HOME/cdr/cdr.zsh
-
 # my prompt setup -- meh, you can just as well use the built in themes if you
 # prefer
 source $VZSH_HOME/prompt/prompt.zsh

@@ -137,13 +137,6 @@ completion
 
 This module sets up some completion styles (if you have your own defined before this is run they might be overwritten), and defines some completion widgets with different behaviors.  This is most useful if you also source the keys file after, so they are bound.
 
-cdr
----
-
-This module sets up the cdr (cd to recent directory) function that is explained in the zsh docs.  It is simply a convenient setup ready to source.
-
-- VZSH_CDR_FILE_STYLE - if set to "multiple", a style is set to keep recent dir history split up by tty.  If set to "none", no style is set.  If not set, a style is set to put the recent dirs in VZSH_CACHE/recent-dirs/recent
-
 Questions? Comments?
 --------------------
 
