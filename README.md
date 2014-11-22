@@ -130,7 +130,7 @@ Set basic, sane default options.
 prompt
 ------
 
-This has my cool prompt.  The colors can be customized (after the module is loaded) with the variables VZSH_PROMPT_STYLES and VZSH_KEYMAP_INDICATOR -- look in the source of prompt.zsh to see the options.
+This has my cool prompt.  It is maximal, not minimal.  Features directory coloring based on perissions/ownership, git/hg branch when in a repo, num jobs if any, exit status if non-zero, current keymap indicator, and current history number.  And time and username/host.  It is on two lines, so your command won't be crowded out by all the information, but all the information is there when you need it.  The colors can be customized (after the module is loaded) with the variables VZSH_PROMPT_STYLES and VZSH_KEYMAP_INDICATOR -- look in the source of prompt.zsh to see the options.
 
 completion
 ----------
