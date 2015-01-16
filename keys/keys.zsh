@@ -105,7 +105,8 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey '^[hM' vzsh-complete-maximal-anywhere
     bindkey '^[ht' vzsh-complete-tmux
     bindkey '^[hs' snippet-expand
-    bindkey '^[hp' insert-last-typed-word
+    bindkey '^[hp' copy-prev-word
+    bindkey '^[hP' copy-prev-shell-word
     bindkey '^[hd' insert-datestamp
 
     # funcs from grml-funcs
