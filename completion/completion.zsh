@@ -68,6 +68,8 @@ zstyle ':completion:vzsh-complete-maximal-anywhere::::' completer _oldlist _expa
 zstyle ':completion:vzsh-complete-maximal-anywhere:*'  matcher-list $VZSH_ANYWHERE_MATCHER_STR
 
 
-autoload -Uz compinit
-compinit
+
+#autoload -Uz compinit
+# use -d... but some things use $COMPDUMPFILE, others $ZSH_COMPDUMP...
+#compinit -d $COMPDUMPFILE
 
