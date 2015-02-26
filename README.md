@@ -16,16 +16,16 @@ Clone the repo and source it.  It depends on my zsh-hooks plugin.
 Antigen install
 ---------------
 
-Seriously, [antigen](https://github.com/zsh-users/antigen) is a better way to go about managing zsh plugins.
+Seriously, [zgen](https://github.com/tarjoilija/zgen) is a better way to go about managing zsh plugins.
 
-    antigen bundle willghatch/zsh-hooks
-    antigen bundle willghatch/vzsh
+    zgen load willghatch/zsh-hooks
+    zgen load willghatch/vzsh
 
 or
 
-    antigen bundle willghatch/zsh-hooks
-    antigen bundle willghatch/vzsh completion
-    antigen bundle willghatch/vzsh keys
+    zgen load willghatch/zsh-hooks
+    zgen load willghatch/vzsh completion
+    zgen load willghatch/vzsh keys
 
 to get just the parts you want.
 
