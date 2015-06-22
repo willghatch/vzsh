@@ -58,6 +58,13 @@ run-help-keys(){
 }
 zle -N run-help-keys
 
+xclip-out(){
+    local xco
+    xco="$(xclip -o -clipboard)"
+    BUFFER="${LBUFFER}${xco}${RBUFFER}"
+    CURSOR=$(( $CURSOR + ${#xco} ))
+}
+zle -N xclip-out
 
 if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     VZSH_ADD_HELP_KEY=true
@@ -88,6 +95,7 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey-to-prefix-map completionkey p copy-prev-word
     bindkey-to-prefix-map completionkey P copy-prev-shell-word
     bindkey-to-prefix-map completionkey d insert-datestamp
+    bindkey-to-prefix-map completionkey v xclip-out
     bindkey -r viins '^[h'
     #bindkey -M viins '^[h' completionkey
     # TODO - for some reason the completers won't run properly now if they're in
@@ -108,6 +116,7 @@ if [ "$VZSH_REMAP_KEYS_P" = "true" ]; then
     bindkey '^[hp' copy-prev-word
     bindkey '^[hP' copy-prev-shell-word
     bindkey '^[hd' insert-datestamp
+    bindkey '^[hv' xclip-out
 
     # funcs from grml-funcs
     bindkey -M vicmd 'md' inPlaceMkDirs
