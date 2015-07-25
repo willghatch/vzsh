@@ -48,6 +48,8 @@ setopt completeinword
 setopt noshwordsplit
 # don't error out when unset parameters are used
 setopt unset
+# allow use of comments in interactive code
+setopt interactivecomments
 
 # watch for everyone but me and root
 #watch=(notme root)
