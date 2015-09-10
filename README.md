@@ -45,7 +45,7 @@ Configuration for each sub-plugin is discussed in its section.  Some global conf
 Features
 ========
 
-Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), and the zaw sources [here](https://github.com/willghatch/zsh-zaw-extras), hooks to zsh-hooks, and prompt to zsh-megaprompt.  And now grml-funcs to willghatch/grml-funcs
+Note that I've moved the snippet submodule [here](https://github.com/willghatch/zsh-snippets), hooks [here](https://github.com/willghatch/zsh-hooks), prompt [here](https://github.com/willghatch/zsh-megaprompt), grml-funcs [here](https://github.com/willghatch/zsh-grml-funcs), and setopt [here](https://github.com/willghatch/zsh-saneopt)
 
 Keys
 ----

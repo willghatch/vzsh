@@ -4,6 +4,16 @@ if [[ -z "$VZSH_DEFAULT_SET" ]]; then
     source ${${0:A}:h}/../defaults.zsh
 fi
 
+# make help (m-h) be more helpful
+autoload -Uz run-help
+autoload run-help-git
+autoload run-help-svn
+autoload run-help-svk
+autoload run-help-sudo
+autoload run-help-openssl
+autoload run-help-p4
+
+
 if [[ -z "$VZSH_ADD_HELP_KEY" ]]; then
     VZSH_ADD_HELP_KEY=true
 fi
